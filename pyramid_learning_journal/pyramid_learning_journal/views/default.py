@@ -1,4 +1,3 @@
-
 from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPNotFound
 
@@ -20,6 +19,7 @@ def home_view(request):
         'journals': JOURNALS
     }
 
+
 @view_config(route_name='detail', renderer="../templates/individual-entry.jinja2")
 def detail_view(request):
     """View for the journal route."""
@@ -33,42 +33,3 @@ def detail_view(request):
         'page': 'Journal Entry',
         'journal': journal
     }
-
-
-# import io
-# import os
-# from pyramid.response import Response
-#
-# HERE = os.path.dirname(__file__)
-#
-#
-# def list_view(request):
-#     """List view"""
-#     with io.open(os.path.join(HERE, '../templates/index.html')) as the_file:
-#         imported_text = the_file.read()
-#
-#     return Response(imported_text)
-#
-#
-# def detail_view(request):
-#     """Detail view"""
-#     with io.open(os.path.join(HERE, '../templates/individual-entry.html')) as the_file:
-#         imported_text = the_file.read()
-#
-#     return Response(imported_text)
-#
-#
-# def create_view(request):
-#     """Create view"""
-#     with io.open(os.path.join(HERE, '../templates/new-entry.html')) as the_file:
-#         imported_text = the_file.read()
-#
-#     return Response(imported_text)
-#
-#
-# def update_view(request):
-#     """update view"""
-#     with io.open(os.path.join(HERE, '../templates/edit.html')) as the_file:
-#         imported_text = the_file.read()
-#
-#     return Response(imported_text)
