@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
-cd pyramid-learning-journal
+cd pyramid_learning_journal
 python setup.py develop
 python runapp.py
