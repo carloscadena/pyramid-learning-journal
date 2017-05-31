@@ -1,0 +1,10 @@
+
+{% extends "layout.jinja2" %}
+{% block content %}
+<h1>List of Journals</h1>
+<ul>
+    {% for item in journals %}
+    <li>Journal {{ item.id }}: {{ item.title }} {{ item.date }} <a href="{{ request.route_url('detail', id=item.id) }}"><button>See This Journal</button></a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
