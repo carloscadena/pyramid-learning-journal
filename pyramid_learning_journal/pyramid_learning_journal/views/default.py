@@ -31,7 +31,7 @@ def create_view(request):
 
 def update_view(request):
     """update view"""
-    with io.open(os.path.join(HERE, '../templatesedit.html')) as the_file:
+    with io.open(os.path.join(HERE, '../templates/edit.html')) as the_file:
         imported_text = the_file.read()
 
     return Response(imported_text)
