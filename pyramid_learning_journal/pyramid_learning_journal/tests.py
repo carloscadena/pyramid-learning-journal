@@ -1,12 +1,12 @@
 # from pyramid import testing
-# import os
-# import io
+import os
+import io
 # from pyramid.response import Response
 # import pytest
 
 from pyramid import testing
 from pyramid.httpexceptions import HTTPNotFound
-from expense_tracker.views.default import JOURNALS
+from pyramid_learning_journal.views.default import JOURNALS
 import pytest
 
 
