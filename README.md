@@ -2,16 +2,11 @@
 
 https://salty-dusk-38359.herokuapp.com/
 
-#Step 1
+#Command line
+cd pyramid_learning_journal
+pip install -e .
+pip install -e .[testing]
 
-Create the following view callables (functions):
-list_view: for the list of journal entries
-detail_view: for a single journal entry
-create_view: for creating a new view
-update_view: for updating an existing view
 
-Connect each of the above views to the following routes, with descriptive but concise route names:
-/
-/journal/{id:\d+}
-/journal/new-entry
-/journal/{id:\d+}/edit-entry
+
+I worked on this with David Lim.
