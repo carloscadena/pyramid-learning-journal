@@ -4,7 +4,7 @@
 <h1>List of Journals</h1>
 <ul>
     {% for item in journals %}
-    <li>Journal {{ item.id }}: {{ item.title }} {{ item.date }} <a href="{{ request.route_url('detail', id=item.id) }}"><button>See This Journal</button></a></li>
+    <li>My entry for <strong>  {{ item.title }}  </strong>  {{ item.date }}  <a href="{{ request.route_url('detail', id=item.id) }}"><button>See This Journal</button></a></li><hr>
     {% endfor %}
 </ul>
 {% endblock %}
