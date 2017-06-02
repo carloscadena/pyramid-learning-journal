@@ -19,6 +19,7 @@ requires = [
     'transaction',
     'zope.sqlalchemy',
     'waitress',
+    'psycopg2'
 ]
 
 tests_require = [
@@ -55,7 +56,7 @@ setup(
             'main = pyramid_learning_journal:main',
         ],
         'console_scripts': [
-            'initialize_pyramid_learning_journal_db = pyramid_learning_journal.scripts.initializedb:main',
+            'initializedb = pyramid_learning_journal.scripts.initializedb:main',
         ],
     },
 )

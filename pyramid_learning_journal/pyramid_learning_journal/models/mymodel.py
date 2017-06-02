@@ -2,17 +2,19 @@ from sqlalchemy import (
     Column,
     Index,
     Integer,
-    Text,
+    Unicode,
+    DateTime
 )
 
 from .meta import Base
 
 
-class MyModel(Base):
-    __tablename__ = 'models'
+class Journal(Base):
+    __tablename__ = 'journal'
     id = Column(Integer, primary_key=True)
-    name = Column(Text)
-    value = Column(Integer)
+    title = Column(Unicode)
+    posted_date = Column(DateTime)
+    body = Column(Unicode)
 
 
-Index('my_index', MyModel.name, unique=True, mysql_length=255)
+Index('my_index', Journal.id, unique=True, mysql_length=255)

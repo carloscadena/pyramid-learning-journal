@@ -2,15 +2,27 @@ import os
 import io
 from pyramid import testing
 from pyramid.httpexceptions import HTTPNotFound
-from pyramid_learning_journal.views.default import JOURNALS
+# from pyramid_learning_journal.views.default import JOURNALS
 import pytest
 
 
 @pytest.fixture
 def testapp():
     """Create a test application to use for functional tests."""
-    from pyramid_learning_journal import main
     from webtest import TestApp
+    from pyramid.config import Configurator
+
+    def main(global_config, **settings):
+        """ This function returns a Pyramid WSGI application.
+        """
+        settings['sqlalchemy.url'] = os.environ.get('TEST_DATABASE')
+        config = Configurator(settings=settings)
+        config.include('pyramid_jinja2')
+        config.include('.models')
+        config.include('.routes')
+        config.scan()
+        return config.make_wsgi_app()
+
     app = main({})
     return TestApp(app)
 
