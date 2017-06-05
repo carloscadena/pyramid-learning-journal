@@ -19,8 +19,8 @@ def detail_view(request):
     """View for the journal route."""
     the_id = int(request.matchdict['id'])
     session = request.dbsession
-    journal = session.query(Journal).get(the_id)
-    if not journal:
+    entry = session.query(Journal).get(the_id)
+    if not entry:
         raise HTTPNotFound
 
     return {

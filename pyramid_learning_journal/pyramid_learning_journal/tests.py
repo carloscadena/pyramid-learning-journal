@@ -59,7 +59,7 @@ def db_session(configuration, request):
     """
     SessionFactory = configuration.registry["dbsession_factory"]
     session = SessionFactory()
-    engine = session.binds
+    engine = session.bind
     Base.metadata.create_all(engine)
 
     def teardown():
@@ -70,6 +70,7 @@ def db_session(configuration, request):
     return session
 
 
+@pytest.fixture
 def dummy_request(db_session):
     """Instantiate a fake HTTP Request, complete with a database session.
     This is a function-level fixture, so every new request will have a
@@ -89,8 +90,8 @@ def test_model_gets_added(db_session):
     assert len(db_session.query(Journal).all()) == 1
 
 
-@pytest.fixture
-def testapp():
+@pytest.fixture(scope="session")
+def testapp(request):
     """Create a test application to use for functional tests."""
     from webtest import TestApp
     from pyramid_learning_journal import main
@@ -134,9 +135,9 @@ def test_home_view_returns_empty_when_database_empty(dummy_request):
     assert len(response['journals']) == 0
 
 
-def test_home_view_returns_count_matching_database(testapp):
+def test_home_view_returns_count_matching_database(dummy_request):
     """Home view response mathes database count."""
-    from pyramid_learning_journal.view.default import home_view
+    from pyramid_learning_journal.views.default import home_view
     response = home_view(dummy_request)
     query = dummy_request.dbsession.query(Journal)
     assert len(response['journals']) == query.count()

@@ -1,24 +1,24 @@
 import os
 import sys
 import transaction
-
 from pyramid.paster import (
     get_appsettings,
     setup_logging,
     )
 
 from pyramid.scripts.common import parse_vars
-
 from ..models.meta import Base
 from ..models import (
     get_engine,
     get_session_factory,
     get_tm_session,
     )
-
 from pyramid_learning_journal.data.data import JOURNALS
 from ..models import Journal
 from datetime import datetime
+from faker import Faker
+
+FAKE = Faker()
 
 
 def usage(argv):
