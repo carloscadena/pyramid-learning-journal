@@ -25,5 +25,5 @@ def detail_view(request):
 
     return {
         'page': 'Journal Entry',
-        'journal': journal
+        'entry': entry
     }
