@@ -1,5 +1,5 @@
 {% extends "layout.jinja2" %}
 {% block content %}
-    <h1>This One Journal Entry: {{ entry.title }} - {{ entry.date }} </h1><a href="{{ request.route_url('create') }}"><button>Edit</button></a>
+    <h1>This One Journal Entry: {{ entry.title }} - {{ entry.date }} </h1><a href="{{ request.route_url('update') }}"><button>Edit</button></a>
     <p>{{ entry.body }}</p>
 {% endblock %}
