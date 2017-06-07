@@ -2,6 +2,7 @@
 {% block content %}
 <h1>Add a new Journal Entry</h1>
 <form class="" method="post">
+  <input type="hidden" name="csrf_token" value="{{ request.session.get_csrf_token() }}" />
   <ul>
     <li>
       <label for="title">Title: </label>
