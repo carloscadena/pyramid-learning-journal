@@ -6,6 +6,7 @@ def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
     settings['sqlalchemy.url'] = os.environ.get('DATABASE_URL')
+    # import pdb; pdb.set_trace()
     config = Configurator(settings=settings)
     config.include('pyramid_jinja2')
     config.include('.models')

@@ -13,7 +13,7 @@ from ..models import (
     get_session_factory,
     get_tm_session,
     )
-from pyramid_learning_journal.data.data import JOURNALS
+from ..data.journal_data import JOURNALS
 from ..models import Journal
 from datetime import datetime
 from faker import Faker
