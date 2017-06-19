@@ -38,7 +38,8 @@ def detail_view(request):
 @view_config(
     route_name='create',
     renderer='../templates/new-entry.jinja2',
-    permission="secret"
+    permission="secret",
+    require_csrf='True'
 )
 def create_view(request):
     """View for adding new entries to journal"""
@@ -64,7 +65,8 @@ def create_view(request):
 @view_config(
     route_name="update",
     renderer="../templates/new-entry.jinja2",
-    permission='secret'
+    permission='secret',
+    require_csrf='True'
     )
 def update_view(request):
     the_id = int(request.matchdict['id'])
