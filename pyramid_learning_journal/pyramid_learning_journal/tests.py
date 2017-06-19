@@ -256,16 +256,18 @@ def test_create_view_post_request_adds_new_db_item(db_session, dummy_request):
     assert new_entry.title == "this new entry"
     assert new_entry.body == "some text in the body"
 
-SITE_ROOT = 'http://localhost'
 
-def test_new_entry_redirects_to_home(testapp):
-    """When redirect happens after new entry, result is home page"""
-    data = {
-        'title': u"fake titles are the best",
-        'body': u'fake body text is fake body text'
-    }
-    response = testapp.post('/journal/new-entry', data)
-    assert response.location == SITE_ROOT + '/'
+# SITE_ROOT = 'http://localhost'
+#
+#
+# def test_new_entry_redirects_to_home(testapp):
+#     """When redirect happens after new entry, result is home page"""
+#     data = {
+#         'title': u"fake titles are the best",
+#         'body': u'fake body text is fake body text'
+#     }
+#     response = testapp.post('/journal/new-entry', data)
+#     assert response.location == SITE_ROOT + '/'
 
 
 def test_update_view_returns_entry_info(db_session, dummy_request, add_models):
